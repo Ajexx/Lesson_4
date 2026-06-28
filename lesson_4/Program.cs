@@ -1,7 +1,6 @@
 ﻿// Ex - 1
 
-//Article article = new Article(1, "C# Programming", 29.99);
-//struct Article
+//public struct Article
 //{
 //    public int id;
 //    public string title;
@@ -20,10 +19,17 @@
 //        this.price = price;
 //    }
 //}
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Article article1 = new Article(1, "C# Programming", 29.99);
+//        Console.WriteLine($"Article ID: {article1.id}, Title: {article1.title}, Price: {article1.price}");
+//    }
+//}
 
 // Ex - 2
 
-//Client client1 = new Client(1, "John", "Doe", "Smith", "123 Main St", "555-1234", 5, 250.75);
 //struct Client
 //{
 //    public int id;
@@ -59,43 +65,118 @@
 //    }
 //}
 
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Client client1 = new Client(1, "John", "Doe", "Smith", "123 Main St", "555-1234", 5, 250.75);
+//        Console.WriteLine($"Client ID: {client1.id}," +
+//            $" Name: {client1.name} {client1.surname} {client1.patronymic}," +
+//            $" Address: {client1.address}," +
+//            $" Telephone: {client1.telephone_number}," +
+//            $" Number of Orders: {client1.num_of_orders}," +
+//            $" Total Amount of Orders: {client1.total_amount_of_orders}");
+//    }
+//}
+
 // Ex - 3
 
-//RequestItem requestItem1 = new RequestItem("Item A", 10);
-//struct RequestItem
+//class Article
 //{
 //    public string name;
+//    public double price;
+//    public Article()
+//    {
+//        this.name = "Default Name";
+//        this.price = 0.0;
+//    }
+//    public Article(string name, double price)
+//    {
+//        this.name = name;
+//        this.price = price;
+//    }
+//}
+
+//struct RequestItem
+//{
+//    public Article article;
 //    public int quantity;
 //    public RequestItem()
 //    {
-//        this.name = "Default Name";
+//        this.article = new Article();
 //        this.quantity = 0;
 //    }
-//    public RequestItem(string name, int quantity)
+//    public RequestItem(Article article, int quantity)
 //    {
-//        this.name = name;
+//        this.article = article;
 //        this.quantity = quantity;
+//    }
+//}
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Article article1 = new Article("Item 1", 29.99);
+//        Article article2 = new Article("Item 2", 39.99);
+//        RequestItem item1 = new RequestItem(article1, 5);
+//        RequestItem item2 = new RequestItem(article2, 10);
+//        Console.WriteLine($"Request Item 1: Name: {item1.article.name}, Price: {item1.article.price}, Quantity: {item1.quantity}");
+//        Console.WriteLine($"Request Item 2: Name: {item2.article.name}, Price: {item2.article.price}, Quantity: {item2.quantity}");
 //    }
 //}
 
 // Ex - 4
 
+//class Article
+//{
+//    public int id;
+//    public string title;
+//    public double price;
+//    public Article()
+//    {
+//        this.id = 0;
+//        this.title = "Default Title";
+//        this.price = 0.0;
+//    }
+//    public Article(int id, string title, double price)
+//    {
+//        this.id = id;
+//        this.title = title;
+//        this.price = price;
+//    }
+//}
+//struct RequestItem
+//{
+//    public Article article;
+//    public int quantity;
+//    public RequestItem()
+//    {
+//        this.article = new Article();
+//        this.quantity = 0;
+//    }
+//    public RequestItem(Article article, int quantity)
+//    {
+//        this.article = article;
+//        this.quantity = quantity;
+//    }
+//}
 //struct Request
 //{
 //    public int id;
-//    public string client_name;
+//    public Article client_name;
 //    public string order_date;
-//    public string[] request_items;
+//    public RequestItem[] request_items;
 //    public double order_amount;
 //    public Request()
 //    {
 //        this.id = 0;
-//        this.client_name = "Default Name";
+//        this.client_name = new Article();
 //        this.order_date = "Default Date";
-//        this.request_items = new string[0];
-//        this.order_amount = 0.0;   
+//        this.request_items = new RequestItem[0];
+//        this.order_amount = 0.0;
 //    }
-//    public Request(int id, string client_name, string order_date, string[] request_items, double order_amount)
+//    public Request(int id, Article client_name, string order_date, RequestItem[] request_items, double order_amount)
 //    {
 //        this.id = id;
 //        this.client_name = client_name;
@@ -104,10 +185,19 @@
 //        this.order_amount = order_amount;
 //    }
 //}
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Article article1 = new Article(1, "C# Programming", 29.99);
+//        RequestItem item1 = new RequestItem(article1, 5);
+//        Request request1 = new Request(1, article1, "2024-06-01", new RequestItem[] { item1 }, 149.95);
+//        Console.WriteLine($"Request ID: {request1.id}, Client Name: {request1.client_name.title}, Order Date: {request1.order_date}, Order Amount: {request1.order_amount}");
+//    }
+//}
 
 // Ex - 5
 
-//Article article = new Article(1, "C# Programming", 29.99, ArticleType.Books);
 //struct Article
 //{
 //    public int id;
@@ -138,10 +228,15 @@
 //    HomeAppliances,
 //    Toys
 //}
-
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Article article = new Article(1, "C# Programming", 29.99, ArticleType.Books);
+//        Console.WriteLine($"Article ID: {article.id}, Title: {article.title}, Price: {article.price}, Type: {article.type}");
+//    }
+//}
 // Ex - 6
-
-//Client client1 = new Client(1, "John", "Doe", "Smith", "123 Main St", "555-1234", 5, 250.75, ClientType.VIP);
 //struct Client
 //{
 //    public int id;
@@ -179,7 +274,6 @@
 //        this.type = type;
 //    }
 //}
-
 //enum ClientType
 //{
 //    Regular,
@@ -187,26 +281,74 @@
 //    New
 //}
 
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Client client1 = new Client(1, "John", "Doe", "Smith", "123 Main St", "555-1234", 5, 250.75, ClientType.VIP);
+//        Console.WriteLine($"Client ID: {client1.id}," +
+//            $" Name: {client1.name} {client1.surname} {client1.patronymic}," +
+//            $" Address: {client1.address}," +
+//            $" Telephone: {client1.telephone_number}," +
+//            $" Number of Orders: {client1.num_of_orders}," +
+//            $" Total Amount of Orders: {client1.total_amount_of_orders}," +
+//            $" Type: {client1.type}");
+//    }
+//}
+
 // Ex - 7
 
+//class Article
+//{
+//    public int id;
+//    public string title;
+//    public double price;
+//    public Article()
+//    {
+//        this.id = 0;
+//        this.title = "Default Title";
+//        this.price = 0.0;
+//    }
+//    public Article(int id, string title, double price)
+//    {
+//        this.id = id;
+//        this.title = title;
+//        this.price = price;
+//    }
+//}
+//class RequestItem
+//{
+//    public Article article;
+//    public int quantity;
+//    public RequestItem()
+//    {
+//        this.article = new Article();
+//        this.quantity = 0;
+//    }
+//    public RequestItem(Article article, int quantity)
+//    {
+//        this.article = article;
+//        this.quantity = quantity;
+//    }
+//}
 //struct Request
 //{
 //    public int id;
-//    public string client_name;
+//    public Article client_name;
 //    public string order_date;
-//    public string[] request_items;
+//    public RequestItem[] request_items;
 //    public double order_amount;
 //    public PayType pay_type;
 //    public Request()
 //    {
 //        this.id = 0;
-//        this.client_name = "Default Name";
+//        this.client_name = new Article();
 //        this.order_date = "Default Date";
-//        this.request_items = new string[0];
+//        this.request_items = new RequestItem[0];
 //        this.order_amount = 0.0;
 //        this.pay_type = PayType.CreditCard;
 //    }
-//    public Request(int id, string client_name, string order_date, string[] request_items, double order_amount, PayType pay_type)
+//    public Request(int id, Article client_name, string order_date, RequestItem[] request_items, double order_amount, PayType pay_type)
 //    {
 //        this.id = id;
 //        this.client_name = client_name;
@@ -216,7 +358,6 @@
 //        this.pay_type = pay_type;
 //    }
 //}
-
 //enum PayType
 //{
 //    CreditCard,
@@ -224,93 +365,114 @@
 //    BankTransfer,
 //    CashOnDelivery
 //}
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Article client = new Article(1, "John Doe", 100.0);
+//        RequestItem[] requestItems = {
+//            new RequestItem(new Article(2, "Item 1", 50.0), 2),
+//            new RequestItem(new Article(3, "Item 2", 99.95), 1)
+//        };
+//        Request request1 = new Request(1, client, "2024-06-01", requestItems, 149.95, PayType.PayPal);
+//        Console.WriteLine($"Request ID: {request1.id}," +
+//            $" Client Name: {request1.client_name.title}," +
+//            $" Order Date: {request1.order_date}," +
+//            $" Order Amount: {request1.order_amount}," +
+//            $" Payment Type: {request1.pay_type}");
+//    }
+//}
+
 
 // Ex - 8
 
-struct Student
-{
-    public string name;
-    public string surname;
-    public string patronymic;
-    public string group;
-    public int age;
-    public int[][] jagged = new int[3][];
-    public double average_score;
-    public Student()
-    {
-        this.name = "Default Name";
-        this.surname = "Default Surname";
-        this.patronymic = "Default Patronymic";
-        this.group = "Default Group";
-        this.age = 0;
-        this.average_score = 0.0;
-        for (int i = 0; i < 3; i++)
-        {
-            jagged[i] = new int[0];
-        }
-    }
-    public Student(string name, string surname, string patronymic, string group, int age, double average_score)
-    {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        this.group = group;
-        this.age = age;
-        this.average_score = average_score;
-        for (int i = 0; i < 3; i++)
-        {
-            jagged[i] = new int[0];
-        }
-    }
+//struct Student
+//{
+//    public string name;
+//    public string surname;
+//    public string patronymic;
+//    public string group;
+//    public int age;
+//    public int[][] jagged = new int[3][];
+//    public double average_score;
 
-    // ============== Methods ==============
+//    private string[] grades = { "Math", "Physics", "Programming" };
+//    public Student()
+//    {
+//        this.name = "Default Name";
+//        this.surname = "Default Surname";
+//        this.patronymic = "Default Patronymic";
+//        this.group = "Default Group";
+//        this.age = 0;
+//        this.average_score = 0.0;
+//        for (int i = 0; i < 3; i++)
+//        {
+//            jagged[i] = new int[0];
+//        }
+//    }
+//    public Student(string name, string surname, string patronymic, string group, int age, double average_score)
+//    {
+//        this.name = name;
+//        this.surname = surname;
+//        this.patronymic = patronymic;
+//        this.group = group;
+//        this.age = age;
+//        this.average_score = average_score;
+//        for (int i = 0; i < 3; i++)
+//        {
+//            jagged[i] = new int[0];
+//        }
+//    }
 
-    public void AddGrades(int[] grades)
-    {
-        int[][] newJagged = new int[jagged.Length + 1][];
-        for (int i = 0; i < jagged.Length; i++)
-        {
-            newJagged[i] = jagged[i];
-        }
-        newJagged[jagged.Length] = grades;
-        jagged = newJagged;
-    }
+//    // ============== Methods ==============
 
-    public void GetGrades()
-    {
-        Console.WriteLine("Grades:");
-        foreach (var gradeArray in jagged)
-        {
-            Console.WriteLine(string.Join(", ", gradeArray));
-        }
-    }
-
-    public void CalculateAverageScore()
-    {
-        int totalGrades = 0;
-        int sumGrades = 0;
-        foreach (var gradeArray in jagged)
-        {
-            foreach (var grade in gradeArray)
-            {
-                sumGrades += grade;
-                totalGrades++;
-            }
-        }
-        if (totalGrades > 0)
-        {
-            average_score = (double)sumGrades / totalGrades;
-        } 
-        else 
-        {
-            average_score = 0.0;
-        }
-    }
-
-    public void PrintInfo()
-    {
-        Console.WriteLine($"Name: {name} {surname} {patronymic}");
-        Console.WriteLine($"Group: {group}");
-        Console.WriteLine($"Average Score: {average_score:F2}");
-    }
-}
+//    public void SetGrades(int studentIndex, int grade)
+//    {
+//        int[] grades = new int[jagged[studentIndex].Length + 1];
+//        Array.Copy(jagged[studentIndex], grades, jagged[studentIndex].Length);
+//        grades[jagged[studentIndex].Length] = grade;
+//        jagged[studentIndex] = grades;
+//    }
+//    public int GetGrades(int studentIndex, int gradeIndex)
+//    {
+//        return jagged[studentIndex][gradeIndex];
+//    }
+//    public double CalculateAverageScore(int subjectIndex)
+//    {   
+//        int[] grades = jagged[subjectIndex];
+//        if ( grades.Length == 0)
+//        {
+//            average_score = 0.0;
+//            return average_score;
+//        }
+//        int sumGrades = 0;
+//        foreach (var grade in grades)
+//        {
+//             sumGrades += grade;
+//        }
+//        average_score = (double)sumGrades / grades.Length;
+//        return average_score;
+//    }
+//    public void PrintInfo()
+//    {
+//        Console.WriteLine($"Name: {name} {surname} {patronymic}");
+//        Console.WriteLine($"Group: {group}");
+//        for (int i = 0; i < jagged.Length; i++)
+//        {
+//            Console.WriteLine($"{grades[i]}: {string.Join(", ", jagged[i])}");
+//        }
+//    }
+//}
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Student student1 = new Student("John", "Doe", "Smith", "CS101", 20, 0.0);
+//        student1.SetGrades(0, 85);
+//        student1.SetGrades(1, 90);
+//        student1.SetGrades(2, 95);
+//        double average = student1.CalculateAverageScore(0);
+//        student1.PrintInfo();
+//        Console.WriteLine($"Average Score: {average}");
+//    }
+//}
